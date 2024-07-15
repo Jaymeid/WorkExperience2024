@@ -34,7 +34,7 @@ class Player : Character{
     }
 
     public void PickUpItem(Item newItem){
-        if(inventory.Count < 5){
+        if(inventory.Count < inventorySize){
             Console.WriteLine($"{newItem.name} added to inventory");
             inventory.Add(newItem);
         }

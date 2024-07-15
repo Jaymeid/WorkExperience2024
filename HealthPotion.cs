@@ -10,9 +10,6 @@ class HealthPotion : Item
 
     public override void Use(Player player)
     {
-        
-        // Implement the healing logic here
-
         if (player.GetHealth() == 100)
         {
             Console.WriteLine("Player already has max health");
