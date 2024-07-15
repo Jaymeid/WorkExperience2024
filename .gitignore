@@ -1,0 +1,111 @@
+# Compiled source files
+*.dll
+*.exe
+*.so
+*.dylib
+*.class
+
+# Packages
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Build directories
+bin/
+obj/
+
+# User-specific files
+*.user
+*.lock
+*.suo
+*.sln.docstates
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code directories
+.vscode/
+
+# Rider directories
+.idea/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# User-specific files
+*.rsuser
+*.resharper
+*_ReSharper.*
+*.sln.ide
+
+# Dotnet specific
+project.lock.json
+project.fragment.lock.json
+
+# ASP.NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET
+.nuget/
+packages/
+*.nupkg
+*.nuspec
+*.localhistory
+
+# JetBrains Rider
+.idea/
+
+# Local history for Visual Studio Code
+.history/
+
+# SQL Server files
+*.mdf
+*.ldf
+
+# Rider JetBrains
+.idea/
+
+# Coverlet Coverage
+coverage*.json
+coverage*.xml
+coverage*.info
+
+# Uncomment if you have tasks that create the following files
+# log/
+# logs/
+
+# dotCover
+*.dotCover
+
+# TeamCity
+_TeamCity/
+
+# Dotfuscator
+dotfuscator/
+
+# LinqPad binary & temp files
+*.linq
+*.linq~
+
+# NuGet
+*.nupkg
+# *.snupkg
+# NuGet Symbol Package
+*.snupkg
+.nuget
