@@ -223,9 +223,6 @@ class Game
         Console.WriteLine("Available commands:");
         Console.WriteLine("  go [direction] - Move to another room (north, south, east, west)");
         Console.WriteLine("  look - Look around the current room");
-        Console.WriteLine("  attack - attack the monster");
-        Console.WriteLine("  take - take an item from the room");
-        Console.WriteLine("  block - block an attack from the monster");
         Console.WriteLine("  help - Display this help message");
         Console.WriteLine("  quit - Exit the game");
     }
