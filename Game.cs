@@ -21,6 +21,7 @@ class Game
 
         List<Item> items = new List<Item>{
             new HealthPotion("health_potion", "drink to restore 20 HP", 20),
+            new Sword("sword", "more damage", 20),
         };
 
         Room livingRoom = new Room("Living Room", "You are in a cozy living room. There is a sofa and a TV here.", false, items);

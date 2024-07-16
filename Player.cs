@@ -33,6 +33,10 @@ class Player : Character{
         health += healthToAdd;
     }
 
+    public List<Item> GetInventory(){
+        return inventory;
+    }
+
     public void PickUpItem(Item newItem){
         if(inventory.Count < inventorySize){
             Console.WriteLine($"{newItem.name} added to inventory");
