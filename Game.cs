@@ -178,6 +178,8 @@ class Game
         Console.WriteLine("  go [direction] - Move to another room (north, south, east, west)");
         Console.WriteLine("  look - Look around the current room");
         Console.WriteLine("  help - Display this help message");
+        Console.WriteLine("  attack - Takes 10HP away from enemy");
+        Console.WriteLine("  block - gives an 3/8 chance to block the enemy's attacks");
         Console.WriteLine("  quit - Exit the game");
     }
 }
