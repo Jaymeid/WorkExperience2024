@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 class Game
 {
-    private Room currentRoom;
-    private Dictionary<string, Room> rooms;
+    private Room? currentRoom;
+    private Dictionary<string, Room>? rooms;
 
     private Player player;
 
@@ -36,6 +36,8 @@ class Game
 
     public void Start()
     {
+        
+
         Console.WriteLine("Welcome to the Text-Based Room Explorer!");
         Console.WriteLine("Type 'help' to see the list of commands.");
         Console.WriteLine();
