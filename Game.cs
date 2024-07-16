@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 class Game
 {
@@ -18,7 +19,11 @@ class Game
     {
         rooms = new Dictionary<string, Room>();
 
-        Room livingRoom = new Room("Living Room", "You are in a cozy living room. There is a sofa and a TV here.", false);
+        List<Item> items = new List<Item>{
+            new HealthPotion("health_potion", "drink to restore 20 HP", 20),
+        };
+
+        Room livingRoom = new Room("Living Room", "You are in a cozy living room. There is a sofa and a TV here.", false, items);
         Room kitchen = new Room("Kitchen", "You are in a kitchen. There is a fridge and a stove here.", true);
         Room bedroom = new Room("Bedroom", "You are in a bedroom. There is a bed and a wardrobe here.", false);
 
@@ -68,6 +73,12 @@ class Game
                 case "look":
                     DisplayCurrentRoom();
                     break;
+                case "take":
+                    TakeItem(inputParts[1]);
+                    break;
+                case "use":
+                    UseItem(inputParts[1]);
+                    break;
                 case "help":
                     DisplayHelp();
                     break;
@@ -81,6 +92,33 @@ class Game
         }
     }
 
+    private void TakeItem(string itemToTake)
+    {
+
+        foreach (Item item in currentRoom.roomItems)
+        {
+            if (item.name == itemToTake)
+            {
+                player.PickUpItem(item);
+                return;
+            }
+        }
+
+        Console.WriteLine($"There were no items that matched description {itemToTake}");
+    }
+
+    private void UseItem(string itemToUse)
+    {
+        foreach (Item item in currentRoom.roomItems)
+        {
+            if (item.name == itemToUse)
+            {
+                item.Use(player);
+                return;
+            }
+        }
+        Console.WriteLine($"There were no items that matched description {itemToUse}");
+    }
     private void CombatLoop()
     {
         bool continueBattle = true;
@@ -158,9 +196,9 @@ class Game
 
     private void MoveToRoom(string direction)
     {
-        if (currentRoom.AdjacentRooms.ContainsKey(direction))
+        if (currentRoom.adjacentRooms.ContainsKey(direction))
         {
-            currentRoom = currentRoom.AdjacentRooms[direction];
+            currentRoom = currentRoom.adjacentRooms[direction];
             DisplayCurrentRoom();
         }
         else
@@ -171,7 +209,15 @@ class Game
 
     private void DisplayCurrentRoom()
     {
-        Console.WriteLine(currentRoom.Description);
+        Console.WriteLine(currentRoom.description);
+        if (!IsNullOrEmpty(currentRoom.roomItems))
+        {
+            Console.WriteLine("There are items in the room: ");
+            foreach (Item item in currentRoom.roomItems)
+            {
+                Console.WriteLine(item.name);
+            }
+        }
     }
 
     private void DisplayHelp()
@@ -183,5 +229,10 @@ class Game
         Console.WriteLine("  attack - Takes 10HP away from enemy");
         Console.WriteLine("  block - gives an 3/8 chance to block the enemy's attacks");
         Console.WriteLine("  quit - Exit the game");
+    }
+
+    static bool IsNullOrEmpty<T>(List<T> list)
+    {
+        return list == null || list.Count == 0;
     }
 }
